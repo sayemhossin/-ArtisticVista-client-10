@@ -11,6 +11,8 @@ import Error from './Pages/Error.jsx';
 import AllArtAndCraft from './Pages/AllArtAndCraft.jsx';
 import AddCraftItem from './Pages/AddCraftItem.jsx';
 import MyArtAndCraftList from './Pages/MyArtAndCraftList.jsx';
+import Login from './Pages/Login.jsx';
+import Register from './Pages/Register.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
         path: '/myartlist',
         element: <MyArtAndCraftList></MyArtAndCraftList>
       },
+      {
+        path:'/login',
+        element:<Login></Login>
+      },
+      {
+        path:'/register',
+        element:<Register></Register>
+      }
     ]
   },
 ]);
