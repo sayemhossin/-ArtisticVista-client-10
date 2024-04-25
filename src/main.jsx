@@ -8,6 +8,9 @@ import {
 import Home from './Pages/Home.jsx';
 import Route from './Root/Route.jsx';
 import Error from './Pages/Error.jsx';
+import AllArtAndCraft from './Pages/AllArtAndCraft.jsx';
+import AddCraftItem from './Pages/AddCraftItem.jsx';
+import MyArtAndCraftList from './Pages/MyArtAndCraftList.jsx';
 
 const router = createBrowserRouter([
   {
@@ -18,7 +21,19 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>
-      }
+      },
+      {
+        path: '/allart',
+        element: <AllArtAndCraft></AllArtAndCraft>
+      },
+      {
+        path: '/addcraft',
+        element: <AddCraftItem></AddCraftItem>
+      },
+      {
+        path: '/myartlist',
+        element: <MyArtAndCraftList></MyArtAndCraftList>
+      },
     ]
   },
 ]);
