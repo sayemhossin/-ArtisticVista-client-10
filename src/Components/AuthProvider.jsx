@@ -1,12 +1,12 @@
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
-import app from "../Firebase/Firebase";
-import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth/cordova";
+
+import auth from "../Firebase/Firebase";
 
 
 
 export const AuthContext = createContext(null)
- const auth = getAuth(app)
+
 
  const googleProvider = new GoogleAuthProvider();
  const githubProvider = new GithubAuthProvider();
@@ -32,6 +32,8 @@ const signIn = (email,password)=>{
 const googleLogin = ()=>{
     return signInWithPopup(auth, googleProvider)
  }
+
+
  const githubLogin = ()=>{
     return signInWithPopup(auth, githubProvider)
  }

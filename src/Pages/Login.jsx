@@ -7,7 +7,8 @@ import { AuthContext } from "../Components/AuthProvider";
 
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext)
+  const { signIn, googleLogin, githubLogin } = useContext(AuthContext)
+
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -32,9 +33,29 @@ const Login = () => {
   }
 
 
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then(() => {
+        toast.success('Login Success')
+        navigate(location?.state ? location.state : '/')
+      })
+      .catch(err => console.log(err))
+  }
+
+
+  const handleGithubLogin = () => {
+    githubLogin()
+      .then(() => {
+        toast.success('Login Success')
+        navigate(location?.state ? location.state : '/')
+      })
+      .catch(err => console.log(err))
+  }
+
+
   return (
     <div className="hero mt-14 mb-14">
-     
+
       <div className="hero-content flex-col w-full">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl text-[#215c9c] font-bold">Login Now!</h1>
@@ -73,11 +94,12 @@ const Login = () => {
               <button className="btn border-0 hover:bg-[#1f83ee] bg-[#378CE7] btn-primary">Login</button>
             </div>
           </form>
-         
+
           <div className="flex justify-around mb-5 items-center">
-          
-           
-          
+
+            <button onClick={handleGoogleLogin} className="btn">Google</button>
+            <button onClick={handleGithubLogin} className="btn">GitHub</button>
+
           </div>
           <div>
             <p className="text-center">Do Not Have Account? <Link className="text-blue-800 font-bold" to={'/register'}>Register now</Link></p>
