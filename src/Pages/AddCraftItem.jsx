@@ -1,10 +1,16 @@
+import { useContext } from "react";
+import { AuthContext } from "../Components/AuthProvider";
+import { toast } from "react-toastify";
 
 const AddCraftItem = () => {
+
+    const {user} = useContext(AuthContext)
+console.log(user)
 
 const handleAddItem = (e) =>{
     e.preventDefault()
 
-    const form = event.target;
+    const form = e.target;
 
     const item = form.item.value
     const subcategory = form.subcategory.value
@@ -15,9 +21,25 @@ const handleAddItem = (e) =>{
     const processing = form.processing.value
     const stock = form.stock.value
     const description = form.description.value
+    const email = user?.email
+    const name = user?.displayName
 
-    const addItems = {item,subcategory,price,rating,photo,customization,processing,stock,description}
+    const addItems = {item,subcategory,price,rating,photo,customization,processing,stock,description,email,name}
     console.log(addItems)
+
+
+fetch('http://localhost:5000/crafts',{
+     method: 'POST',
+     headers:{'content-type': 'application/json'},
+     body:JSON.stringify(addItems)
+
+})
+.then(res =>res.json())
+.then(data =>{
+    console.log(data)
+    toast.success('Added Successfully')
+})
+form.reset()
 }
 
 
@@ -38,40 +60,40 @@ const handleAddItem = (e) =>{
              <div className="grid md:grid-cols-2 gap-5">
              <div>
                     <h1 className="text-2xl font-bold">Item Name:</h1>
-                    <input className="w-full  text-xl h-14 bg-white rounded-xl p-4" type="text" name="item" id="" placeholder="Item Name"/>
+                    <input className="w-full  text-xl h-14 bg-white rounded-xl p-4" type="text" name="item" id="" placeholder="Item Name" required/>
                 </div>
                 <div>
                     <h1 className="text-2xl font-bold">Subcategory Name:</h1>
-                    <input className="w-full text-xl h-14 bg-white rounded-xl p-4" type="text" name="subcategory" id="" placeholder="Subcategory"/>
+                    <input className="w-full text-xl h-14 bg-white rounded-xl p-4" type="text" name="subcategory" id="" placeholder="Subcategory" required/>
                 </div>
                 <div>
                     <h1 className="text-2xl font-bold">Price:</h1>
-                    <input className="w-full text-xl h-14 bg-white rounded-xl p-4" type="text" name="price" id="" placeholder="Price"/>
+                    <input className="w-full text-xl h-14 bg-white rounded-xl p-4" type="text" name="price" id="" placeholder="Price" required/>
                 </div>
                 <div>
                     <h1 className="text-2xl font-bold">Rating:</h1>
-                    <input className="w-full text-xl h-14 bg-white rounded-xl p-4" type="text" name="rating" id="" placeholder="Rating"/>
+                    <input className="w-full text-xl h-14 bg-white rounded-xl p-4" type="text" name="rating" id="" placeholder="Rating" required/>
                 </div>
                 <div>
                     <h1 className="text-2xl font-bold">Image Url:</h1>
-                    <input className="w-full text-xl h-14 bg-white rounded-xl p-4" type="text" name="photo" id="" placeholder="Image Url"/>
+                    <input className="w-full text-xl h-14 bg-white rounded-xl p-4" type="text" name="photo" id="" placeholder="Image Url" required/>
                 </div>
                 <div>
                     <h1 className="text-2xl font-bold">Customization:</h1>
-                    <input className="w-full text-xl h-14 bg-white rounded-xl p-4" type="text" name="customization" id="" placeholder="Customization"/>
+                    <input className="w-full text-xl h-14 bg-white rounded-xl p-4" type="text" name="customization" id="" placeholder="Customization" required/>
                 </div>
                 <div>
                     <h1 className="text-2xl font-bold">Processing Time:</h1>
-                    <input className="w-full text-xl h-14 bg-white rounded-xl p-4" type="text" name="processing" id="" placeholder="Processing Time"/>
+                    <input className="w-full text-xl h-14 bg-white rounded-xl p-4" type="text" name="processing" id="" placeholder="Processing Time" required/>
                 </div>
                 <div>
                     <h1 className="text-2xl font-bold">Stock Status:</h1>
-                    <input className="w-full text-xl h-14 bg-white rounded-xl p-4" type="text" name="stock" id="" placeholder="Stock Status"/>
+                    <input className="w-full text-xl h-14 bg-white rounded-xl p-4" type="text" name="stock" id="" placeholder="Stock Status" required/>
                 </div>
              </div>
                 <div className="mt-4">
                     <h1 className="text-2xl font-bold">Short Description:</h1>
-                    <input className="w-full text-xl h-14 bg-white rounded-xl p-4" type="text" name="description" id="" placeholder="Description"/>
+                    <input className="w-full text-xl h-14 bg-white rounded-xl p-4" type="text" name="description" id="" placeholder="Description" required/>
                 </div>
              <input className="btn w-full text-xl text-[#240A34] font-extrabold  md:text-4xl bg-[#803D3B] mt-5  " type="submit" value="Add Item" />
                 

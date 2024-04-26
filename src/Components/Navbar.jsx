@@ -6,7 +6,7 @@ const Navbar = () => {
 
 const {user,logOut }= useContext(AuthContext)
 
-console.log(user)
+// console.log(user)
 
 const link = <>
 <div className="flex  flex-col lg:flex-row" id="sidebar">

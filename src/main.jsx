@@ -14,6 +14,8 @@ import MyArtAndCraftList from './Pages/MyArtAndCraftList.jsx';
 import Login from './Pages/Login.jsx';
 import Register from './Pages/Register.jsx';
 import AuthProvider from './Components/AuthProvider.jsx';
+import CraftItem from './Components/CraftItem.jsx';
+import CraftDetails from './Pages/CraftDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -44,7 +46,13 @@ const router = createBrowserRouter([
       {
         path:'/register',
         element:<Register></Register>
-      }
+      },
+     
+     {
+      path:'/craftdetails/:id',
+      element:<CraftDetails></CraftDetails>,
+      loader:({params}) =>fetch(`http://localhost:5000/crafts/${params.id}`)
+     }
     ]
   },
 ]);
