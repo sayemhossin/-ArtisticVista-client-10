@@ -28,7 +28,7 @@ const handleLogout = () =>{
 }
 
     return (
-        <div className="navbar bg-base-100 md:px-16 mt-10">
+        <div className="navbar bg-base-100 md:px-16 md:mt-6">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -38,7 +38,10 @@ const handleLogout = () =>{
        {link}
       </ul>
     </div>
-    <a className="btn text-xl btn-ghost md:text-4xl">ArtisticVista</a>
+    <div className="flex items-center gap-0">
+      <img className="w-10  md:w-16" src="https://i.ibb.co/9NyQJ8g/watercolor.png" alt="" />
+    <a className="btn text-xl btn-ghost font-extrabold md:text-4xl">ArtisticVista</a>
+    </div>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
