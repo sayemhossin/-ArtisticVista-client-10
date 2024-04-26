@@ -12,8 +12,12 @@ const link = <>
 <div className="flex  flex-col lg:flex-row" id="sidebar">
 <li><NavLink to={'/'}>Home</NavLink></li>
 <li><NavLink to={'/allart'}>All Art & craft Items</NavLink></li>
-<li><NavLink to={'/addcraft'}>Add Craft Item</NavLink></li>
+{
+  user && <>
+  <li><NavLink to={'/addcraft'}>Add Craft Item</NavLink></li>
 <li><NavLink to={'/myartlist'}>My Art&Craft List</NavLink></li>
+  </>
+}
 </div>
 
 </>
@@ -42,13 +46,29 @@ const handleLogout = () =>{
     </ul>
   </div>
   <div className="navbar-end">
-  
-   {
-    user ?<button onClick={handleLogout} className="btn">logout</button>  : <Link to={'/login'}> <button className="btn" >Login</button></Link>
-   }
-  <p>{user?.email}</p>
 
+{
+  user ?<>
+   <div className="tooltip flex dropdown-end" data-tip={user?.displayName || 'user name not found'}>
+    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+      <div className="w-10 rounded-full">
+        <img src={user?.photoURL  || 'https://i.ibb.co/sgsSHth/360-F-229758328-7x8jw-Cwjt-BMm-C6rg-Fz-LFh-Zo-Ep-Lob-B6-L8.jpg'} />
+      </div>
+    </label>
+   
   </div>
+  <div>
+  <button
+          onClick={handleLogout}
+          className="btn p-1 text-[12px] md:text-[17px] md:p-4 bg-[#378CE7] hover:bg-[#1181f8] text-[#ecf0f1]">Logout</button>
+  </div>
+  </>
+    :
+    <Link to='/login'>
+      <button className="btn  bg-[#378CE7] hover:bg-[#1181f8] text-[#ecf0f1]">Login</button>
+    </Link>
+}
+</div>
 </div>
     );
 };

@@ -1,34 +1,47 @@
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import app from "../Firebase/Firebase";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth/cordova";
 
 
 
 export const AuthContext = createContext(null)
  const auth = getAuth(app)
 
-
+ const googleProvider = new GoogleAuthProvider();
+ const githubProvider = new GithubAuthProvider();
+ 
 
 const AuthProvider = ({children}) => {
 
 const [user,setUser] = useState('')
-
+const [loading,setLoading] = useState(true)
 
 
 const createUser = (email,password)=>{
+    setLoading(true)
     return createUserWithEmailAndPassword(auth,email,password)
 }
 
 
 const signIn = (email,password)=>{
-   
+    setLoading(true)
     return signInWithEmailAndPassword(auth,email,password)
 }
+
+const googleLogin = ()=>{
+    return signInWithPopup(auth, googleProvider)
+ }
+ const githubLogin = ()=>{
+    return signInWithPopup(auth, githubProvider)
+ }
+
+
 
 
 
 const logOut = () =>{
-
+    setLoading(true)
     return signOut(auth)
 }
 
@@ -51,7 +64,7 @@ const updateUserProfile = (name, photo) => {
 useEffect(()=>{
     const unSubscribe =  onAuthStateChanged(auth, user =>{
         
-       
+        setLoading(false)
         setUser(user)
 
         
@@ -74,7 +87,11 @@ const authInfo = {
     signIn,
     user,
     logOut,
-    updateUserProfile
+    updateUserProfile,
+    loading,
+    googleLogin,
+    githubLogin
+
 }
 
 
