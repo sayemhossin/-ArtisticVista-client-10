@@ -1,6 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import './Navbar.css'
+import { useContext } from "react";
+import { AuthContext } from "./AuthProvider";
 const Navbar = () => {
+
+const {user,logOut }= useContext(AuthContext)
+
+console.log(user)
 
 const link = <>
 <div className="flex  flex-col lg:flex-row" id="sidebar">
@@ -11,7 +17,11 @@ const link = <>
 </div>
 
 </>
-
+const handleLogout = () =>{
+  logOut()
+  .then()
+  .catch()
+}
 
     return (
         <div className="navbar bg-base-100 md:px-16">
@@ -33,7 +43,11 @@ const link = <>
   </div>
   <div className="navbar-end">
   
-    <Link to={'/login'}> <button className="btn">Login</button></Link>
+   {
+    user ?<button onClick={handleLogout} className="btn">logout</button>  : <Link to={'/login'}> <button className="btn" >Login</button></Link>
+   }
+  <p>{user?.email}</p>
+
   </div>
 </div>
     );
