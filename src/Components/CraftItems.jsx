@@ -15,10 +15,12 @@ useEffect(()=>{
 },[])
  
     return (
-        <div>
-          {
-            items.map(item => <CraftItem item={item} key={item._id}></CraftItem>)
+        <div >
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 mx-5 md:mx-20 gap-10">
+        {
+            items.slice(0,6).map(item => <CraftItem item={item} key={item._id}></CraftItem>)
           }
+        </div>
         </div>
     );
 };
