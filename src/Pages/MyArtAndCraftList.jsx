@@ -3,10 +3,14 @@ import { AuthContext } from "../Components/AuthProvider";
 import MyArtAndCraftListPage from "./MyArtAndCraftListPage";
 
 const MyArtAndCraftList = () => {
+
+
     const [loading, setLoading] = useState(true);
     const {user} = useContext(AuthContext) || {}
     console.log(user)
 const [cards,setCards] = useState([])
+
+
 console.log(cards)
 useEffect(()=>{
     fetch(`http://localhost:5000/myProduct/${user?.email}`)
@@ -16,6 +20,8 @@ useEffect(()=>{
         setLoading(false)
     })
 },[user])
+
+
 
     return (
         <div>
@@ -31,9 +37,10 @@ useEffect(()=>{
             <div>
                 <h1 className="text-center text-4xl font-bold text-red-900 md:text-5xl underline mt-10">My Art&Craft List</h1>
             </div>
+            
             <div className="grid gap-10 mt-10">
                 {
-                    cards.map(card => <MyArtAndCraftListPage card={card} key={card._id}></MyArtAndCraftListPage>)
+                    cards.map(card => <MyArtAndCraftListPage card={card}  key={card._id}></MyArtAndCraftListPage>)
                 }
             </div>
 

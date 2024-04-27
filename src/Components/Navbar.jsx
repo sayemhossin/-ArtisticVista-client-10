@@ -9,7 +9,7 @@ const {user,logOut }= useContext(AuthContext)
 // console.log(user)
 
 const link = <>
-<div className="flex  flex-col lg:flex-row" id="sidebar">
+<div className="flex  flex-col text-[17px] lg:flex-row" id="sidebar">
 <li><NavLink to={'/'}>Home</NavLink></li>
 <li><NavLink to={'/allart'}>All Art & craft Items</NavLink></li>
 {
@@ -63,7 +63,7 @@ const handleLogout = () =>{
   <div>
   <button
           onClick={handleLogout}
-          className="btn p-1 text-[12px] md:text-[17px] md:p-4 bg-[#378CE7] hover:bg-[#1181f8] text-[#ecf0f1]">Logout</button>
+          className="btn p-1 text-[12px] md:text-[17px] md:p-4 bg-[#990000] hover:bg-[#7a1c1c] text-[#ecf0f1]">Logout</button>
   </div>
   </>
     :

@@ -1,6 +1,47 @@
-import { FaStar } from "react-icons/fa";
-
+import { useState } from "react";
+import { FaEdit, FaStar, FaTrashAlt } from "react-icons/fa";
+import Swal from 'sweetalert2'
 const MyArtAndCraftListPage = ({card}) => {
+
+
+const handleDelete =(id) =>{
+    console.log(id)
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(`http://localhost:5000/crafts/${id}`,{
+                method:'DELETE'
+             })
+             .then(res => res.json())
+             .then(data =>{
+                  if(data.deletedCount > 0){
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                      });
+                  }
+             })
+        }
+      });
+
+
+
+   
+
+
+
+
+   
+}
+
     return (
         <div className=" md:mx-20 lg:mx-52 p-6 border-2 rounded-xl">
   <div className="flex lg:gap-28 flex-col lg:flex-row">
@@ -18,8 +59,8 @@ const MyArtAndCraftListPage = ({card}) => {
 
 
              <div className="flex gap-7 lg:ml-[600px] justify-end">
-             <button className="btn ">Update</button>
-  <button className="btn ">Delete</button>
+             <button data-tip="Update" className="text-2xl tooltip"><FaEdit /></button>
+  <button onClick={()=>handleDelete(card._id)} className="tooltip text-xl " data-tip="Delete"><FaTrashAlt /></button>
              </div>
 
                
