@@ -16,6 +16,7 @@ import Register from './Pages/Register.jsx';
 import AuthProvider from './Components/AuthProvider.jsx';
 import CraftItem from './Components/CraftItem.jsx';
 import CraftDetails from './Pages/CraftDetails.jsx';
+import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
      
      {
       path:'/craftdetails/:id',
-      element:<CraftDetails></CraftDetails>,
+      element: <PrivateRoute><CraftDetails></CraftDetails></PrivateRoute>,
       loader:({params}) =>fetch(`http://localhost:5000/crafts/${params.id}`)
      }
     ]
