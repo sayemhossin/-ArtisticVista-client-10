@@ -61,7 +61,7 @@ const Login = () => {
           <h1 className="text-5xl text-[#215c9c] font-bold">Login Now!</h1>
 
         </div>
-        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="card shrink-0 w-full max-w-sm  bg-base-100">
 
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
@@ -91,7 +91,7 @@ const Login = () => {
 
             </div>
             <div className="form-control mt-6">
-              <button className="btn border-0 hover:bg-[#1f83ee] bg-[#378CE7] btn-primary">Login</button>
+              <button className="btn border-0 bg-[#990000] hover:bg-[#7a1c1c] btn-primary">Login</button>
             </div>
           </form>
 

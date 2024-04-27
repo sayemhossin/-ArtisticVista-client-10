@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaEdit, FaStar, FaTrashAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
 const MyArtAndCraftListPage = ({card}) => {
 
@@ -27,6 +28,7 @@ const handleDelete =(id) =>{
                         text: "Your file has been deleted.",
                         icon: "success"
                       });
+                      window.location.reload();
                   }
              })
         }
@@ -59,7 +61,7 @@ const handleDelete =(id) =>{
 
 
              <div className="flex gap-7 lg:ml-[600px] justify-end">
-             <button data-tip="Update" className="text-2xl tooltip"><FaEdit /></button>
+             <Link to={`/updatecraft/${card._id}`}><button data-tip="Update" className="text-2xl tooltip"><FaEdit /></button></Link>
   <button onClick={()=>handleDelete(card._id)} className="tooltip text-xl " data-tip="Delete"><FaTrashAlt /></button>
              </div>
 

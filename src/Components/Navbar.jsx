@@ -68,7 +68,7 @@ const handleLogout = () =>{
   </>
     :
     <Link to='/login'>
-      <button className="btn  bg-[#378CE7] hover:bg-[#1181f8] text-[#ecf0f1]">Login</button>
+      <button className="btn  bg-[#990000] hover:bg-[#7a1c1c] text-[#ecf0f1]">Login</button>
     </Link>
 }
 </div>
