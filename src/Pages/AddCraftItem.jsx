@@ -12,7 +12,7 @@ const handleAddItem = (e) =>{
 
     const form = e.target;
 
-    const item = form.item.value
+    const item = form.item.value.toUpperCase();
     const subcategory = form.subcategory.value
     const price = form.price.value
     const rating = form.rating.value

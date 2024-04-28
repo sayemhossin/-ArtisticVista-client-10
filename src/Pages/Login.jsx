@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { AuthContext } from "../Components/AuthProvider";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 
 
@@ -94,11 +95,13 @@ const Login = () => {
               <button className="btn border-0 bg-[#990000] hover:bg-[#7a1c1c] btn-primary">Login</button>
             </div>
           </form>
+<div className="divider">or login with</div>
+          <div className="">
 
-          <div className="flex justify-around mb-5 items-center">
+            <button onClick={handleGoogleLogin} className="border-2 flex items-center justify-center rounded-xl hover:bg-red-50 border-red-900 py-1 text-red-900 font-bold text-xl gap-2  w-72 mx-auto p-"><FaGoogle className="text-red-700"></FaGoogle> Google</button><br />
+            <button onClick={handleGithubLogin} className="border-2 flex items-center justify-center rounded-xl hover:bg-gray-200 border-black py-1 text-black-900 font-bold text-xl gap-2  w-72 mx-auto p-"><FaGithub className="text-black-700"></FaGithub> GitHub</button>
 
-            <button onClick={handleGoogleLogin} className="btn">Google</button>
-            <button onClick={handleGithubLogin} className="btn">GitHub</button>
+          
 
           </div>
           <div>
