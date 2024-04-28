@@ -18,6 +18,7 @@ import CraftItem from './Components/CraftItem.jsx';
 import CraftDetails from './Pages/CraftDetails.jsx';
 import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
 import UpdateCraft from './Pages/UpdateCraft.jsx';
+import ArtCraftMatch from './Components/ArtCraftMatch.jsx';
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       element:<UpdateCraft></UpdateCraft>,
       loader:({params}) =>fetch(`http://localhost:5000/crafts/${params.id}`)
 
+     },
+     {
+         path:'/artcraftmatch',
+         element:<ArtCraftMatch></ArtCraftMatch>
      }
     ]
   },

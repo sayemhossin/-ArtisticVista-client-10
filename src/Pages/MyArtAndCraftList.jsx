@@ -84,7 +84,7 @@ useEffect(()=>{
             <div>
                 <h1 className="text-center text-4xl font-bold text-red-900 md:text-5xl underline mt-10">My Art&Craft List</h1>
             </div>
-            <details className="dropdown ml-[46%] rounded-xl mt-11 bg-red-900" onClick={()=>setArr(!arr)}>
+            <details className="dropdown ml-[30%] md:ml-[46%] rounded-xl mt-11 bg-red-900" onClick={()=>setArr(!arr)}>
   <summary className="m-1 btn border-0 text-xl text-gray-200  hover:bg-red-800 bg-red-900">  Sort By {arr?<FaArrowUp/>:<FaArrowDown/>}
   
 

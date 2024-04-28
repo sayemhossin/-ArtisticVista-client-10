@@ -25,11 +25,11 @@ const handleToggle = (e) =>{
     setTheme('light')
   }
 }
-console.log(theme)
+
 
 const {user,logOut }= useContext(AuthContext)
 
-// console.log(user)
+
 
 const link = <>
 <div className="flex  flex-col text-[17px] lg:flex-row" id="sidebar">
@@ -42,7 +42,7 @@ const link = <>
 <li><NavLink to={'/myartlist'}>My Art&Craft List</NavLink></li>
   </>
 }
-<li> <div>
+<li> <div className=" md:hidden">
    <label className="cursor-pointer grid place-items-center">
   <input
   onChange={handleToggle}
