@@ -105,7 +105,7 @@ useEffect(()=>{
   </ul>
 </details>
             
-            <div className="grid gap-10 mt-10">
+            <div className="grid mx-5 gap-10 mt-10">
                 {
                     sort.map(card => <MyArtAndCraftListPage card={card}  key={card._id}></MyArtAndCraftListPage>)
                 }

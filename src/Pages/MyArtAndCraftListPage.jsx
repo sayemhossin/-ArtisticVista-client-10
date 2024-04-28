@@ -45,7 +45,7 @@ const handleDelete =(id) =>{
 }
 
     return (
-        <div className=" md:mx-20 lg:mx-52 p-6 border-2 rounded-xl">
+        <div className="  mx-auto py-4  border-2 rounded-xl">
   <div className="flex lg:gap-28 flex-col lg:flex-row">
     <img src={card.photo} className="lg:max-w-sm mx-5 mt-3 rounded-lg " />
     <div className="mt-3 space-y-4 md:space-y-9 px-4">

@@ -37,11 +37,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/addcraft',
-        element: <AddCraftItem></AddCraftItem>
+        element: <PrivateRoute><AddCraftItem></AddCraftItem></PrivateRoute>
       },
       {
         path: '/myartlist',
-        element: <MyArtAndCraftList></MyArtAndCraftList>
+        element: <PrivateRoute><MyArtAndCraftList></MyArtAndCraftList></PrivateRoute>
       },
       {
         path:'/login',
@@ -59,13 +59,15 @@ const router = createBrowserRouter([
      },
      {
       path:'/updatecraft/:id',
-      element:<UpdateCraft></UpdateCraft>,
+      element:<PrivateRoute><UpdateCraft></UpdateCraft>,</PrivateRoute>,
       loader:({params}) =>fetch(`http://localhost:5000/crafts/${params.id}`)
 
      },
      {
-         path:'/artcraftmatch',
-         element:<ArtCraftMatch></ArtCraftMatch>
+         path:'/artcraftmatch/:id',
+         element:<ArtCraftMatch></ArtCraftMatch>,
+         loader:({params}) =>fetch(`http://localhost:5000/artcraft/${params.id}`)
+
      }
     ]
   },
