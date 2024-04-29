@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./AuthProvider";
 const Navbar = () => {
 
-const [theme,setTheme] = useState('light')
+const [theme,setTheme] = useState(localStorage.getItem('theme') || 'light')
 
 useEffect(()=>{
  localStorage.setItem('theme',theme)
@@ -77,7 +77,7 @@ const handleLogout = () =>{
     </div>
     <div className="flex items-center gap-0">
       <img className="w-10  md:w-16" src="https://i.ibb.co/9NyQJ8g/watercolor.png" alt="" />
-    <a className="btn text-xl btn-ghost font-extrabold md:text-4xl">ArtisticVista</a>
+   <Link to={'/'}> <h2 className=" text-xl hover:bg-white btn-ghost font-extrabold md:text-4xl">Artistic<span className="text-red-800">Vista</span></h2></Link>
     </div>
   </div>
   <div className="navbar-center hidden lg:flex">

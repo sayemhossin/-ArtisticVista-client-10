@@ -2,7 +2,7 @@ import { Fade } from 'react-awesome-reveal';
 import { Typewriter } from 'react-simple-typewriter'
 const Banner = () => {
   return (
-    <div className="carousel md:h-[80vh] h-72 w-full">
+    <div className="carousel md:h-[85vh] h-72 w-full">
       <div id="slide1" className="carousel-item relative w-full">
 
 
@@ -35,7 +35,7 @@ const Banner = () => {
             <div className=" h-full w-full">
               <h1 className="mb-5 px-1 text-2xl text-[#FF204E]  lg:w-[700px] lg:ml-[5%] md:ml-[10%] md:text-5xl font-bold">Brush to Life: <span className="text-[#FC4100]"><Typewriter words={['Evoking Emotion Through Art']}></Typewriter></span></h1>
               <Fade>
-                <p className="mb-5 px-1 text-[#e7d5e1] text-xs md:text-xl lg:w-[1400px] mt-10 lg:ml-[5%] md:ml-[10%]">  Evoking Emotion Through Art" encapsulates the power of creativity to ignite profound feelings. Each piece, meticulously crafted, invites viewers on an emotional odyssey. From tranquil landscapes to poignant portraits, the exhibition celebrates the capacity of art to evoke a spectrum of emotions, enriching the human experience.</p>
+                <p className="mb-5 px-1 text-[#e7d5e1] text-xs md:text-xl lg:w-[1400px] mt-10 lg:ml-[5%] md:ml-[10%]">  Evoking Emotion Through Art encapsulates the power of creativity to ignite profound feelings. Each piece, meticulously crafted, invites viewers on an emotional odyssey. From tranquil landscapes to poignant portraits, the exhibition celebrates the capacity of art to evoke a spectrum of emotions, enriching the human experience.</p>
               </Fade>
 
             </div>

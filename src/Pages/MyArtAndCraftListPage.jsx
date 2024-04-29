@@ -25,7 +25,7 @@ const handleDelete =(id) =>{
                   if(data.deletedCount > 0){
                     Swal.fire({
                         title: "Deleted!",
-                        text: "Your file has been deleted.",
+                        text: "Your data has been deleted.",
                         icon: "success"
                       });
                       window.location.reload();
@@ -34,14 +34,6 @@ const handleDelete =(id) =>{
         }
       });
 
-
-
-   
-
-
-
-
-   
 }
 
     return (

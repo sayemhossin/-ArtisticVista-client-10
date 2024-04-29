@@ -6,7 +6,7 @@ const CraftItem = ({ item }) => {
         <div className="card  bg-base-100 border-2 border-orange-200">
             <figure><img src={item.photo} alt="Shoes" /></figure>
             <div className="card-body md:space-y-4 text-gray-600">
-                <h2 className="card-title  md:text-2xl font-extrabold">Item Name: {item.item}</h2>
+                <h2 className="card-title  md:text-2xl font-extrabold">{item.item}</h2>
                 <p className="md:text-xl "><span className="font-bold">Subcategory Name:</span> {item.subcategory}</p>
                 <div className="flex text-xl font-bold">
                     <p>Price: {item.price} $</p>
