@@ -8,7 +8,7 @@ const CraftDetails = () => {
     const [item, setItem] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:5000/crafts')
+        fetch('https://assignment-ten-server-xi-nine.vercel.app/crafts')
             .then(res => res.json())
             .then(data => {
                 setItems(data);

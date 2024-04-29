@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       {
         path: '/allart',
         element: <AllArtAndCraft></AllArtAndCraft>,
-        loader: () => fetch('http://localhost:5000/crafts')
+        loader: () => fetch('https://assignment-ten-server-xi-nine.vercel.app/crafts')
       },
       {
         path: '/addcraft',
@@ -55,18 +55,18 @@ const router = createBrowserRouter([
       {
         path: '/craftdetails/:id',
         element: <PrivateRoute><CraftDetails></CraftDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/crafts/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-ten-server-xi-nine.vercel.app/crafts/${params.id}`)
       },
       {
         path: '/updatecraft/:id',
         element: <PrivateRoute><UpdateCraft></UpdateCraft>,</PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/crafts/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-ten-server-xi-nine.vercel.app/crafts/${params.id}`)
 
       },
       {
         path: '/artcraftmatch/:name',
         element: <PrivateRoute><ArtCraftMatch></ArtCraftMatch></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/craftss/${params.name}`)
+        loader: ({ params }) => fetch(`https://assignment-ten-server-xi-nine.vercel.app/craftss/${params.name}`)
 
       }
     ]

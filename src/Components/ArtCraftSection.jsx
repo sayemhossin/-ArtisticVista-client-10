@@ -7,7 +7,7 @@ const [artcraft,setArtcraft] = useState([])
 
 
 useEffect(()=>{
-    fetch('http://localhost:5000/artcraft')
+    fetch('https://assignment-ten-server-xi-nine.vercel.app/artcraft')
     .then(res => res.json())
     .then(data => {
         setArtcraft(data)

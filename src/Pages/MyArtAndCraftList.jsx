@@ -37,7 +37,7 @@ const MyArtAndCraftList = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myProduct/${user?.email}`)
+        fetch(`https://assignment-ten-server-xi-nine.vercel.app/myProduct/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setCards(data)

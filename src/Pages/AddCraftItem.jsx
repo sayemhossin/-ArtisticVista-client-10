@@ -28,7 +28,7 @@ const AddCraftItem = () => {
         console.log(addItems)
 
 
-        fetch('http://localhost:5000/crafts', {
+        fetch('https://assignment-ten-server-xi-nine.vercel.app/crafts', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(addItems)

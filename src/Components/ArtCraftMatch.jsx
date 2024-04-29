@@ -7,7 +7,7 @@ const ArtCraftMatch = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/crafts')
+        fetch('https://assignment-ten-server-xi-nine.vercel.app/crafts')
             .then(res => res.json())
             .then(data => {
               
