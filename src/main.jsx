@@ -24,7 +24,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Route></Route>,
-    errorElement:<Error></Error>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: '/',
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       {
         path: '/allart',
         element: <AllArtAndCraft></AllArtAndCraft>,
-        loader:() => fetch('http://localhost:5000/crafts')
+        loader: () => fetch('http://localhost:5000/crafts')
       },
       {
         path: '/addcraft',
@@ -44,39 +44,39 @@ const router = createBrowserRouter([
         element: <PrivateRoute><MyArtAndCraftList></MyArtAndCraftList></PrivateRoute>
       },
       {
-        path:'/login',
-        element:<Login></Login>
+        path: '/login',
+        element: <Login></Login>
       },
       {
-        path:'/register',
-        element:<Register></Register>
+        path: '/register',
+        element: <Register></Register>
       },
-     
-     {
-      path:'/craftdetails/:id',
-      element: <PrivateRoute><CraftDetails></CraftDetails></PrivateRoute>,
-      loader:({params}) =>fetch(`http://localhost:5000/crafts/${params.id}`)
-     },
-     {
-      path:'/updatecraft/:id',
-      element:<PrivateRoute><UpdateCraft></UpdateCraft>,</PrivateRoute>,
-      loader:({params}) =>fetch(`http://localhost:5000/crafts/${params.id}`)
 
-     },
-     {
-         path:'/artcraftmatch/:id',
-         element:<ArtCraftMatch></ArtCraftMatch>,
-         loader:({params}) =>fetch(`http://localhost:5000/artcraft/${params.id}`)
+      {
+        path: '/craftdetails/:id',
+        element: <PrivateRoute><CraftDetails></CraftDetails></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/crafts/${params.id}`)
+      },
+      {
+        path: '/updatecraft/:id',
+        element: <PrivateRoute><UpdateCraft></UpdateCraft>,</PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/crafts/${params.id}`)
 
-     }
+      },
+      {
+        path: '/artcraftmatch/:name',
+        element: <PrivateRoute><ArtCraftMatch></ArtCraftMatch></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/craftss/${params.name}`)
+
+      }
     ]
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
- <AuthProvider>
- <RouterProvider router={router} />
- </AuthProvider>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )

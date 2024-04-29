@@ -19,33 +19,16 @@ const handleFilter = filter =>{
     if(filter == 'all'){
         setSort(cards)
     }
-    else if(filter == 'portrait'){
-        const portrait = cards.filter(card => card.item === 'PORTRAIT DRAWING')
+    else if(filter == 'no'){
+        const portrait = cards.filter(card => card.customization === 'No')
         setSort(portrait)
     }
-    else if(filter == 'watercolor'){
-        const watercolor = cards.filter(card => card.item === 'WATERCOLOUR PAINTING')
+    else if(filter == 'yes'){
+        const watercolor = cards.filter(card => card.customization === 'Yes')
         
         setSort(watercolor)
     }
-    else if(filter == 'landscape'){
-        const landscape = cards.filter(card => card.item === 'LANDSCAPE PAINTING')
-       
-        setSort(landscape)
-    }
-    else if(filter == 'oil'){
-        const oil = cards.filter(card => card.item === 'OIL PAINTING')
-        setSort(oil)
-    }
-    else if(filter == 'charcoal'){
-        const charcoal = cards.filter(card => card.item === 'CHARCOAL SKETCHING')
-        setSort(charcoal)
-    }
-    else if(filter == 'cartoon'){
-        const cartoon = cards.filter(card => card.item === 'CARTOON DRAWING')     
-   
-        setSort(cartoon)
-    }
+    
 
 
 
@@ -84,8 +67,8 @@ useEffect(()=>{
             <div>
                 <h1 className="text-center text-4xl font-bold text-red-900 md:text-5xl underline mt-10">My Art&Craft List</h1>
             </div>
-            <details className="dropdown ml-[30%] md:ml-[46%] rounded-xl mt-11 bg-red-900" onClick={()=>setArr(!arr)}>
-  <summary className="m-1 btn border-0 text-xl text-gray-200  hover:bg-red-800 bg-red-900">  Sort By {arr?<FaArrowUp/>:<FaArrowDown/>}
+            <details className="dropdown ml-[24%] md:ml-[42%] rounded-xl mt-11 bg-red-900" onClick={()=>setArr(!arr)}>
+  <summary className="m-1 btn border-0 text-xl text-gray-200  hover:bg-red-800 bg-red-900">Filter By Customization {arr?<FaArrowUp/>:<FaArrowDown/>}
   
 
   
@@ -95,13 +78,10 @@ useEffect(()=>{
 
 
   <ul className="p-2 shadow menu dropdown-content z-[1]  bg-base-100 rounded-box w-52">
-    <li onClick={()=>handleFilter('all')}><a>all</a></li>
-    <li onClick={()=>handleFilter('portrait')}><a>portrait</a></li>
-    <li onClick={()=>handleFilter('watercolor')}><a>watercolor</a></li>
-    <li onClick={()=>handleFilter('oil')}><a>oil</a></li>
-    <li onClick={()=>handleFilter('charcoal')}><a>charcoal</a></li>
-    <li onClick={()=>handleFilter('landscape')}><a>landscape</a></li>
-    <li onClick={()=>handleFilter('cartoon')}><a>cartoon</a></li>
+    <li onClick={()=>handleFilter('all')}><a>All</a></li>
+    <li onClick={()=>handleFilter('yes')}><a>Yes</a></li>
+    <li onClick={()=>handleFilter('no')}><a>No</a></li>
+    
   </ul>
 </details>
             
